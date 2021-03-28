@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand">Template</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarColor01"
+      aria-controls="navbarColor01"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- <div class="collapse navbar-collapse" id="navbarColor01" *ngIf="auth.$hasAdminAccess | async"> -->
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a [routerLink]="['/']" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/', 'restricted']" class="nav-link" href="#">Restricted</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav float-right text-red">
+        <li class="nav-item dropdown">
+          <a
+            [routerLink]=""
+            class="nav-link dropdown-toggle text-white"
+            data-toggle="dropdown"
+            id="userinfo"
+            aria-expanded="false"
+            >{{ (auth.$userInfo | async).display }}</a
+          >
+          <div class="dropdown-menu" aria-labelledby="userinfo">
+            <a class="dropdown-item" [routerLink]="" (click)="logout()">Logout</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<ng-content></ng-content>
