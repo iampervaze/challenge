@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'profiles',
     loadChildren: () => import('./pages/profiles/profiles.module').then(m => m.ProfilesModule)
+  },
+  {
+    path: 'design-patterns',
+    loadChildren: () => import('./pages/design-patterns/design-patterns.module').then(m => m.DesignPatternsModule)
   }
 ];
 
